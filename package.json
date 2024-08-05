@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "customize-cra": "^1.0.0",
-    "react-app-rewired": "^2.2.1"
+    "react-app-rewired": "^2.2.1",
+    "react-router-dom": "^6.26.0"
   }
 }
