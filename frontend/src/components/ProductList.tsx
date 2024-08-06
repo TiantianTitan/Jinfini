@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Product } from '../types';
 import { Link } from 'react-router-dom';
-import styles from './ProductList.module.css'; // 使用 CSS 模块
+import styles from './ProductList.module.css';
 
 const ProductList: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);

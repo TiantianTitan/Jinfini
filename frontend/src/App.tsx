@@ -37,21 +37,23 @@ const App: React.FC = () => {
           <img className={styles.phoneIcon} alt="phone" src={phoneIcon} />
           <img className={styles.menuIcon} alt="menu" src={menuIcon} />
         </div>
-        <div className={styles.body}>
-          <div className={styles.videoContainer}>
-            <div className={styles.bg_text}>Centre commercial de pâtisserie en ligne Jinfini</div>
-            <video className={styles.bg_video} src={bg_video} autoPlay loop muted />
-            <img className={styles.jinfiniLogo} alt="logo" src={logo} />
-            <video className={styles.bg_video2} src={bg_video2} autoPlay loop muted />
-            <div className={styles.bg_text2}>Choose what you want, do what you love.</div>
-          </div>
-          <div className={styles.products}>
-            <Routes>
-              <Route path="/" element={<ProductList />} />
-              <Route path="/product/:id" element={<ProductDetail />} />
-            </Routes>
-          </div>
-        </div>
+        <Routes>
+          <Route path="/" element={
+            <div className={styles.body}>
+              <div className={styles.videoContainer}>
+                <div className={styles.bg_text}>Centre commercial de pâtisserie en ligne Jinfini</div>
+                <video className={styles.bg_video} src={bg_video} autoPlay loop muted />
+                <img className={styles.jinfiniLogo} alt="logo" src={logo} />
+                <video className={styles.bg_video2} src={bg_video2} autoPlay loop muted />
+                <div className={styles.bg_text2}>Choose what you want, do what you love.</div>
+              </div>
+              <div className={styles.products}>
+                <ProductList />
+              </div>
+            </div>
+          } />
+          <Route path="/product/:id" element={<ProductDetail />} />
+        </Routes>
       </div>
     </Router>
   );

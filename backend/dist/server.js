@@ -23,6 +23,7 @@ const db = mysql_1.default.createConnection({
 // 连接到数据库
 db.connect(err => {
     if (err) {
+        console.error('Error connecting to MySQL:', err); // Updated error log
         throw err;
     }
     console.log('MySQL Connected...');
@@ -41,8 +42,10 @@ app.get('/createcakestable', (req, res) => {
     PRIMARY KEY(id)
   )`;
     db.query(sql, (err, result) => {
-        if (err)
+        if (err) {
+            console.error('Error creating table:', err); // Updated error log
             throw err;
+        }
         res.send('Cakes table created...');
     });
 });
@@ -63,8 +66,10 @@ app.post('/addcake', upload.single('image'), (req, res) => {
     let sql = 'INSERT INTO cakes (category_id, cake_name, image, price, description, note, vote) VALUES (?, ?, ?, ?, ?, ?, ?)';
     let values = [category_id, cake_name, image, price, description, note, vote];
     db.query(sql, values, (err, result) => {
-        if (err)
+        if (err) {
+            console.error('Error adding cake:', err); // Updated error log
             throw err;
+        }
         res.send('Cake added...');
     });
 });
@@ -72,23 +77,36 @@ app.post('/addcake', upload.single('image'), (req, res) => {
 app.get('/getcakes', (req, res) => {
     let sql = 'SELECT * FROM cakes';
     db.query(sql, (err, results) => {
-        if (err)
+        if (err) {
+            console.error('Error fetching cakes:', err);
             throw err;
+        }
+        console.log('Fetched cakes:', results);
         res.json(results);
+    });
+});
+// 获取单个蛋糕信息
+app.get('/getcake/:id', (req, res) => {
+    const { id } = req.params;
+    console.log('Fetching cake with id:', id); // Debug log
+    let sql = 'SELECT * FROM cakes WHERE id = ?';
+    db.query(sql, [id], (err, result) => {
+        if (err) {
+            console.error('Error fetching cake:', err); // Debug log
+            throw err;
+        }
+        if (result.length > 0) {
+            console.log('Found cake:', result[0]); // Debug log
+            res.json(result[0]);
+        }
+        else {
+            console.warn('Product not found for id:', id); // Debug log
+            res.status(404).send('Product not found');
+        }
     });
 });
 // 设置服务器端口
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-});
-// 获取单个蛋糕信息
-app.get('/getproduct/:id', (req, res) => {
-    const { id } = req.params;
-    let sql = 'SELECT * FROM cakes WHERE id = ?';
-    db.query(sql, [id], (err, result) => {
-        if (err)
-            throw err;
-        res.json(result[0]);
-    });
 });

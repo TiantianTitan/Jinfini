@@ -1,27 +1,68 @@
 /* src/components/ProductDetail.module.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logoIcon {
+  width: 48px;
+  height: 48px;
+}
+
+.jinfiniParis {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.homeIcon, .phoneIcon, .menuIcon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
 .productDetail {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    background-color: #fff;
-  }
-  
-  .productImage {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .productDetail h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .productDetail p {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
-  
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.productDetail h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.productDetail p {
+  font-size: 28px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.productNotFound {
+  color: red;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 50px;
+}
