@@ -1,0 +1,166 @@
+/* App.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Allura:wght@400&display=swap');
+
+body {
+    width: 100%;
+  	margin: 0; line-height: normal;
+    overflow-x: hidden;
+}
+
+.homepage, .header, .body, .videoContainer {
+  width: 100%;
+  box-sizing: border-box; 
+  background-color:rgb(255, 235, 205);
+}
+
+/* HomePage.module.css */
+.homepage {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 居中对齐 */
+    justify-content: flex-start;
+    gap: 10px;
+    text-align: left;
+    font-size: 40px;
+    color: #fff;
+    font-family: Allura;
+    box-sizing: border-box;
+  }
+  
+  /** header **/
+  .header {
+    width: 100%;
+    background-color: #000;
+    height: 88px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 20px; 
+    box-sizing: border-box;
+    position: relative;
+    gap: 10px;
+  }
+  
+  .jinfiniParis {
+    position: relative;
+    font-size: 40px;
+    font-family: Allura;
+    color: #fff;
+    text-align: left;
+    }
+
+  .homeIcon, .phoneIcon, .menuIcon {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    margin: 0 !important;
+    top: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .logoIcon{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    margin: 0 !important;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .homeIcon {
+    left: 10px;
+    z-index: 1;
+  }
+  
+  .phoneIcon {
+    right: 112px;
+    z-index: 2;
+  }
+  
+  .menuIcon {
+    right: 37px;
+    z-index: 3;
+  }
+
+  /** body **/
+  .body {
+    margin-top: auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #000;
+    font-family: 'Abhaya Libre ExtraBold';
+    box-sizing: border-box;
+  }
+
+  .videoContainer {
+    position: relative;
+    width: 98%;
+    height: 700px;
+    align-items: center;
+    display: flex;
+  }
+  
+  .bg_video {
+    position: absolute;
+    width: 55%;
+    height: auto;
+    top: 0px;
+    right: 0px;
+    display: block;
+  }
+
+    .jinfiniLogo {
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    width: 12%; 
+    height: auto;
+  }
+  
+
+  .bg_video2 {
+    position: absolute;
+    width: 55%;
+    height: auto;
+    top: 250px; 
+    left: 0px;
+    display: block;
+  }
+
+  .bg_text,.bg_text2 {
+    width: 45%;
+    position: absolute;
+    text-align: center; 
+    font-size:34px;
+
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif
+  }
+
+  .bg_text{
+    top: 100px;
+  }
+
+  .bg_text2 {
+    top: 480px;
+    right: 0px;
+  }
+
+  
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      height: auto;
+      padding: 10px;
+    }
+  }
