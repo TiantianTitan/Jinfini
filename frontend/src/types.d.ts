@@ -7,5 +7,5 @@ export interface Product {
     price: number;
     description: string;
     note: string;
-    vite: number
+    vote: number
   }

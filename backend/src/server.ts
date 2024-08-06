@@ -84,3 +84,14 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+
+// 获取单个蛋糕信息
+app.get('/getproduct/:id', (req, res) => {
+  const { id } = req.params;
+  let sql = 'SELECT * FROM cakes WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) throw err;
+    res.json(result[0]);
+  });
+});

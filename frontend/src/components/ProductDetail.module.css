@@ -1,0 +1,27 @@
+/* src/components/ProductDetail.module.css */
+.productDetail {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  
+  .productImage {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .productDetail h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .productDetail p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  

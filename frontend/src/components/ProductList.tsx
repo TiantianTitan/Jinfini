@@ -1,7 +1,9 @@
+// src/components/ProductList.tsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Product } from '../types';
-import './ProductList.css'; // 引入CSS文件
+import { Link } from 'react-router-dom';
+import styles from './ProductList.module.css'; // 使用 CSS 模块
 
 const ProductList: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -16,26 +18,19 @@ const ProductList: React.FC = () => {
       });
   }, []);
 
-  const handleProductClick = (id: number) => {
-    // 假设你有一个产品介绍页面 /product/:id
-    window.location.href = `/product/${id}`;
-  };
-
   return (
-    <div style={{ textAlign: 'center', padding: '20px' }}>
-      <h1>Our choices</h1>
-      <div className="product-list">
-        {products.map(product => (
-          <div 
-            key={product.id} 
-            className="product-item" 
-            onClick={() => handleProductClick(product.id)}
-          >
-            <img src={`http://localhost:5000/${product.image}`} alt={product.cake_name} className="product-image" />
-            <p>{product.cake_name} - {product.price} €</p>
+    <div className={styles.productList}>
+      {products.map(product => (
+        <Link to={`/product/${product.id}`} key={product.id} className={styles.card}>
+          <div className={styles.cardImageContainer}>
+            <img src={`http://localhost:5000/${product.image}`} alt={product.cake_name} className={styles.cardImage} />
           </div>
-        ))}
-      </div>
+          <div className={styles.cardContent}>
+            <h2 className={styles.cardTitle}>{product.cake_name}</h2>
+            <p className={styles.cardPrice}>{product.price} €</p>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 };
